@@ -35,6 +35,7 @@ cmake-build-debug/
 ## Plugin-specific files:
 
 # IntelliJ
+/bin/
 /out/
 /src/StartingOutSourceCode/
 /src/Tony/
@@ -43,6 +44,7 @@ cmake-build-debug/
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
+.DS_Store
 
 # JIRA plugin
 atlassian-ide-plugin.xml
