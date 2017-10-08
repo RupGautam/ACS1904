@@ -12,7 +12,7 @@ package Class_Labs.Lab5;/**
 
 
 /**
- This class represents non-negative amounts of money.
+ * This class represents non-negative amounts of money.
  */
 public class Money {
 
@@ -37,8 +37,19 @@ public class Money {
 			cents = allCents % 100;
 		}
 	}
-// ADD LINES FOR TASK #1 HERE
+	// ADD LINES FOR TASK #1 HERE
 // Document and write a copy constructor
+
+	/**
+	 * Overloaded Constructor
+	 *
+	 * @param object2 The money object to copy.
+	 */
+	public Money(Money object2) {
+		dollars = object2.dollars;
+		cents = object2.cents;
+
+	}
 
 	/**
 	 * The add method
@@ -51,8 +62,7 @@ public class Money {
 		sum.cents = this.cents + otherAmount.cents;
 		long carryDollars = sum.cents / 100;
 		sum.cents = sum.cents % 100;
-		sum.dollars = this.dollars +
-				otherAmount.dollars +
+		sum.dollars = this.dollars + otherAmount.dollars +
 				carryDollars;
 		return sum;
 	}
@@ -67,17 +77,11 @@ public class Money {
 	public Money subtract(Money amount) {
 		Money difference = new Money ( 0 );
 		if (this.cents < amount.cents) {
-			this.dollars = this.dollars
-					-
-					1;
+			this.dollars = this.dollars - 1;
 			this.cents = this.cents + 100;
 		}
-		difference.dollars = this.dollars
-				-
-				amount.dollars;
-		difference.cents = this.cents
-				-
-				amount.cents;
+		difference.dollars = this.dollars - amount.dollars;
+		difference.cents = this.cents - amount.cents;
 		return difference;
 	}
 
@@ -92,22 +96,53 @@ public class Money {
 	 */
 	public int compareTo(Money amount) {
 		int value;
-		if (this.dollars < amount.dollars)
+		if (this.dollars < amount.dollars) {
+			value = - 1;
+		} else if (this.dollars > amount.dollars) {
 			value = 1;
-		else if (this.dollars > amount.dollars)
+		} else if (this.cents < amount.cents) {
+			value = - 1;
+		} else if (this.cents > amount.cents) {
 			value = 1;
-		else if (this.cents < amount.cents)
-			value = 1;
-		else if (this.cents > amount.cents)
-			value = 1;
-		else
+		} else {
 			value = 0;
+		}
 		return value;
 	}
-	// ADD LINES FOR TASK #2 HERE
-// Document and write an equals method
-// Document and write a toString method
-	public Money(long dollars, long cents){
 
+	// ADD LINES FOR TASK #2 HERE
+// Document and write an equals method public
+// Document and write a toString method
+
+	/**
+	 * Equals method
+	 * @param amount
+	 *        the amount to compare
+	 * @return compare the if the objects are equal
+	 */
+	public boolean equals(Money amount) {
+		boolean status;
+		if (this.dollars == amount.dollars &&
+				this.cents == amount.cents) {
+			status = true;
+		} else {
+			status = false;
+		}
+		return status;
 	}
+
+	/**
+	 * (non-Javadoc)
+	 * @see Object#toString()
+	 */
+	public String toString() {
+		String str = "$" + dollars;
+		if (cents < 10) {
+			str += ".0" + cents;
+		} else {
+			str += "." + cents;
+		}
+		return str;
+	}
+
 }
