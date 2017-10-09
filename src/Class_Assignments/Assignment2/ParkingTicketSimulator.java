@@ -33,27 +33,6 @@ public class ParkingTicketSimulator {
 		} else {
 			System.out.println ( "No crimes committed!" );
 		}
-//		ParkedCar car1 = new ParkedCar("Tesla", "S3", "Red", "MB123GH", 80);
-//		// Create a PoliceOfficer object.
-//		PoliceOfficer officer2 = new PoliceOfficer("John Doe",
-//				"4008");
-//		// Let the officer patrol.
-//		ParkingTicket ticket2 = officer.patrol(car, meter);
-//		if (ticket != null)
-//			System.out.println(ticket);
-//		else
-//			System.out.println("No crimes committed!");
-//		ParkedCar car3 = new ParkedCar("Toyota", "Corrolla", "White", "HAD123", 10);
-//		// Create a PoliceOfficer object.
-//		PoliceOfficer officer3 = new PoliceOfficer("Jane Doe",
-//				"4788");
-//		// Let the officer patrol.
-//		ParkingTicket ticket3 = officer.patrol(car, meter);
-//		if (ticket != null)
-//			System.out.println(ticket);
-//		else
-//			System.out.println("No crimes committed!");
-//
 	}
 }
 

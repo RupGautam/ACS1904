@@ -17,15 +17,27 @@ public class ParkingMeter {
 
 	private float minutesPurchased;
 
+	/**
+	 * Parking meter reference to super class
+	 * @param minutesPurchased
+	 */
 	public ParkingMeter(int minutesPurchased) {
 		super ( );
 		this.minutesPurchased = minutesPurchased;
 	}
 
+	/**
+	 * Returns total minutes purchased
+	 * @return
+	 */
 	public float getMinutesPurchased() {
 		return minutesPurchased;
 	}
 
+	/**
+	 * Sets minutes purchased minutesPurchased
+	 * @param minutesPurchased
+	 */
 	public void setMinutesPurchased(float minutesPurchased) {
 		this.minutesPurchased = minutesPurchased;
 	}

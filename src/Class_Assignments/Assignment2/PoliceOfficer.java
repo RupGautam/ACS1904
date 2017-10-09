@@ -19,12 +19,21 @@ public class PoliceOfficer {
 	private String officerName;
 	private String officerBadge;
 
+	/**
+	 * @param officerName
+	 * @param officerBadge
+	 */
 	public PoliceOfficer(String officerName, String officerBadge) {
 		this.officerName = officerName;
 		this.officerBadge = officerBadge;
 	}
 
-
+	/**
+	 *
+	 * @param car Creates car object of ParkedCar
+	 * @param meter Creates meter object of ParkingMeter
+	 * @return Returns null, if no ticket issued
+	 */
 	public ParkingTicket patrol(ParkedCar car, ParkingMeter meter) {
 		this.getOfficerName ( );
 		ParkingTicket ticket = null;
@@ -36,18 +45,34 @@ public class PoliceOfficer {
 		return null;
 	}
 
+	/**
+	 * Returns the officer Name
+	 * @return
+	 */
 	public String getOfficerName() {
 		return officerName;
 	}
 
+	/**
+	 * Sets officer name
+	 * @param officerName
+	 */
 	public void setOfficerName(String officerName) {
 		this.officerName = officerName;
 	}
 
+	/**
+	 * Returns officers badge
+	 * @return
+	 */
 	public String getOfficerBadge() {
 		return officerBadge;
 	}
 
+	/**
+	 * Set officer badge
+	 * @param officerBadge
+	 */
 	public void setOfficerBadge(String officerBadge) {
 		this.officerBadge = officerBadge;
 	}

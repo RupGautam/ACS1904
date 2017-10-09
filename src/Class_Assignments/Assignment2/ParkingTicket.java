@@ -26,6 +26,12 @@ public class ParkingTicket {
 	private float minutes;
 	private double totalFine;
 
+	/**
+	 *
+	 * @param car
+	 * @param officer
+	 * @param minutes
+	 */
 	public ParkingTicket(ParkedCar car, PoliceOfficer officer, float minutes) {
 		super ( );
 		this.car = car;
@@ -35,11 +41,19 @@ public class ParkingTicket {
 		calculateFine ( );
 	}
 
+	/**
+	 *
+	 * @param car
+	 * @param illegalMin
+	 */
 	public ParkingTicket(ParkedCar car, PoliceOfficer illegalMin) {
 		this.car = car;
 		this.illegalMin = illegalMin;
 	}
 
+	/**
+	 *
+	 */
 	private void calculateFine() {
 		double hours = minutes / 60.0;
 		int hourInt = (int) hours;
@@ -53,21 +67,9 @@ public class ParkingTicket {
 
 	}
 
-//	public String printMessage(){
-//		System.out.println ("***** ParkingTicket *****");
-//		System.out.print("\nOfficer on duty: " + officer);
-//		System.out.print("\nCar info: " + car);
-//		System.out.print("\nOfficer on duty: " + fine);
-//		System.out.print("\nMinutes Parked: " + minutes);
-//		System.out.print("\nBase Fine: " + HOURLY_FINE);
-//		System.out.print("\nHourly Fine: " + HOURLY_FINE);
-//		System.out.print("\nTotal Fine: " + HOURLY_FINE+HOURLY_FINE);
-//
-//	}
-
 	@Override
 	public String toString() {
-		// I had to use StringBuilder to build the string
+		// Using string builder to print the ticket
 		StringBuilder printMessage = new StringBuilder ( );
 		System.out.println ( "\n***** ParkingTicket *****" );
 		System.out.print ( "\nParking Ticket Number:" + "WPGTICKET" + count++ );
