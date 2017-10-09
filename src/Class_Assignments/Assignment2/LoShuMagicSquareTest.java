@@ -10,16 +10,11 @@ package Class_Assignments.Assignment2;
 
 import org.junit.jupiter.api.Test;
 
-/**
- * Created by RupGautam on 29/09/2017.
- */
 
 class LoShuMagicSquareTest {
 
 	@Test
 	void testSomething() {
-		System.out.println ( LoShuMagicSquare.class );
-
 
 	}
 

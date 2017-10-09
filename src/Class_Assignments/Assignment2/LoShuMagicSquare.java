@@ -10,93 +10,99 @@ package Class_Assignments.Assignment2;
 
 import java.util.Scanner;
 
-/**
- * Created by RupGautam on 30/09/2017.
- */
-
-
 public class LoShuMagicSquare {
 
-	public LoShuMagicSquare(String input1, String input2, String input3) {
-		input1 = input1;
-		input2 = input2;
-		input3 = input3;
-
-	}
-
 	public static void main(String[] args) {
-		/**
-		 *
-		 */
-		int[][] array = new int[3][3];
-		String s = new String ( );
-		String input1, input2, input3;
-
+		int[][] square = new int[3][3];
 		Scanner kb = new Scanner ( System.in );
-		boolean magic = false;
-		int sum1 = 0, sum2 = 0, sum3 = 0;
 
-		// Getting first row of numbers
-		System.out.println ( "Row 1, Number separated by space: " );
-		s = kb.nextLine ( );
-		// stripping the space between numbers
+		// Read in the user's magic square.
+		System.out.println ( "Please enter your magic square." );
 		for (int i = 0; i < 3; i++) {
-			// Filling out the first row with three numbers
-			//TODO:
-			// Try using token to print each numbers
-			array[i][0] = Integer.parseInt ( s.substring ( i * 2, (i * 2) + 1 ) );
-			sum1 += array[i][0];
+			System.out.println ( "Enter For Row #" + (i + 1) + " :" );
+			for (int j = 0; j < 3; j++) {
+				System.out.print ( "Enter Column #" + (j + 1) + " :" );
+				square[i][j] = kb.nextInt ( );
+			}
 		}
-
-		System.out.println ( "Row 2, Number separated by space" );
-		s = kb.nextLine ( );
-		// stripping the space between numbers
-		for (int j = 0; j < 3; j++) {
-			// Filling out the second row with three numbers
-			array[j][1] = Integer.parseInt ( s.substring ( j * 2, (j * 2) + 1 ) );
-			sum2 += array[j][1];
-
+		if (checkForDup ( square ) && checkForSums ( square )) {
+			System.out.println ( "It's a Magic Square" );
+		} else {
+			System.out.println ( "It's not a Magic Square" );
 		}
-
-		System.out.println ( "Row 3, Number separated by space" );
-		s = kb.nextLine ( );
-		// stripping the space between numbers
-		for (int k = 0; k < 3; k++) {
-			// Filling out the third row with three numbers
-			array[k][2] = Integer.parseInt ( s.substring ( k * 2, (k * 2) + 1 ) );
-			sum3 += array[k][2];
-		}
-
-		if (sum1 == 15 && sum2 == 15 && sum3 == 15) {
-			System.out.println ( "True Magic Square, BITCH!" );
-		}
-
-//		for (int i = 0; i < 10; i++) {
-//			array[2][2] = i;
-//			for (int j = 0; j < 10; j++) {
-//				array[1][2] = j;
-//				for (int k = 0; k < 10; k++) {
-//					array[0][2] = k;
-//					if (array[0][0] + array[1][0] + array[2][0] == 15
-//							&& array[0][1] + array[1][1] + array[2][1] == 15
-//							&& array[0][2] + array[1][2] + array[2][2] == 15 &&
-//							array[0][0] + array[0][1] + array[0][2] == 15
-//							&& array[1][0] + array[1][1] + array[1][2] == 15
-//							&& array[2][0] + array[2][1] + array[2][2] == 15 &&
-//							array[0][0] + array[1][1] + array[2][2] == 15
-//							&& array[0][2] + array[1][1] + array[2][0] == 15) {
-//					}
-//					magic = true;
-//					System.out.println("Magic Square!");
-//
-//					if (magic == false) {
-//						System.out.println("Yikes! No Magic Square!");
-//					}
-//				}
-//			}
-//		}
 	}
 
+	/**
+	 * Returns true if all 3x3 has valid 1 - 9 numbers (no-repetition of numbers)
+	 *
+	 * @return Returns true if all statement passes
+	 */
+	private static boolean checkForDup(int[][] square) {
+		// Store all the input in array
+		int[] count = new int[10];
+
+		// Fill all row init value as 0
+		for (int i = 0; i < 10; i++) {
+			count[i] = 0;
+		}
+		//For Row
+		for (int i = 0; i < 3; i++) {
+			// For Column
+			for (int j = 0; j < 3; i++) {
+				if (square[i][j] < 1 || square[i][j] > 9) {
+					count[square[i][j]]++;
+					return false;
+				}
+			}
+		}
+		// If any number from 1-9 is missing, then return false
+		for (int i = 0; i < 10; i++) {
+			if (count[i] != 1) {
+				return false;
+			}
+		}
+
+		return true;
+
+	}
+
+	/**
+	 * Returns true when all 3x3 row/col & 2 diagonals sums up 15.
+	 */
+	private static boolean checkForSums(int[][] square) {
+
+		for (int i = 0; i < 3; i++) {
+			int sum = 0;
+			for (int j = 0; i < 3; j++) {
+				sum += square[i][j];
+			}
+			if (sum != 15) {
+				return false;
+			}
+		}
+
+		for (int i = 0; i < 3; i++) {
+			int sum = 0;
+			for (int j = 0; j < 3; j++) {
+				sum += square[i][j];
+			}
+			if (sum != 15) {
+				return false;
+			}
+		}
+
+		// Checking for forward diagonal
+		if (square[0][0] + square[1][1] + square[2][2] != 15) {
+			return false;
+		}
+		// Checking for backward diagonal
+		if (square[2][0] + square[1][1] + square[0][2] != 15) {
+			return false;
+		}
+
+		// If all those statement passed return true
+		return true;
+	}
 }
 
 
