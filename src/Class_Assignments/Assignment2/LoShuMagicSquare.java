@@ -23,13 +23,18 @@ public class LoShuMagicSquare {
 			for (int j = 0; j < 3; j++) {
 				System.out.print ( "Enter Column #" + (j + 1) + " :" );
 				square[i][j] = kb.nextInt ( );
+				if (square[i][j] < 1 || square[i][j] > 9) {
+					System.out.println ( "I am here" );
+					System.exit ( 0 );
+				}
+
 			}
 		}
-		if (checkForDup ( square ) && checkForSums ( square )) {
-			System.out.println ( "It's a Magic Square" );
-		} else {
-			System.out.println ( "It's not a Magic Square" );
-		}
+			if (checkForSums ( square ) && checkForDup ( square ))
+				System.out.println ( "It's a Magic Square" );
+			else
+				System.out.println ( "It's not a Magic Square" );
+
 	}
 
 	/**
@@ -39,47 +44,53 @@ public class LoShuMagicSquare {
 	 */
 	private static boolean checkForDup(int[][] square) {
 		// Store all the input in array
-		int[] count = new int[10];
+		int[] count = new int[9];
+		int k = 0;
 
 		// Fill all row init value as 0
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 9; i++) {
 			count[i] = 0;
 		}
 		//For Row
 		for (int i = 0; i < 3; i++) {
 			// For Column
-			for (int j = 0; j < 3; i++) {
-				if (square[i][j] < 1 || square[i][j] > 9) {
-					count[square[i][j]]++;
-					return false;
+			for (int j = 0; j < 3; j++) {
+				count[k] = square[i][j];
+				k++;
+
+				for (int s = 0; s < k; s++) {
+					if (square[i][j] == count[s]) {
+						System.out.println ( "here bro here!!!" );
+						return false;
+					}
 				}
 			}
 		}
+		return true;
+	}
 		// If any number from 1-9 is missing, then return false
-		for (int i = 0; i < 10; i++) {
-			if (count[i] != 1) {
+/*
+		for (int i = 0; i < 9; i++) {
+
+		if (count[i] != 1) {
+				System.out.println ( Arrays.toString ( count) );
+				System.out.println ("here bro here" );
 				return false;
 			}
+			else {
+				System.out.print ( "lol" );
+				continue;
+			}
+
 		}
-
 		return true;
-
 	}
+*/
 
 	/**
 	 * Returns true when all 3x3 row/col & 2 diagonals sums up 15.
 	 */
 	private static boolean checkForSums(int[][] square) {
-
-		for (int i = 0; i < 3; i++) {
-			int sum = 0;
-			for (int j = 0; i < 3; j++) {
-				sum += square[i][j];
-			}
-			if (sum != 15) {
-				return false;
-			}
-		}
 
 		for (int i = 0; i < 3; i++) {
 			int sum = 0;
@@ -91,12 +102,22 @@ public class LoShuMagicSquare {
 			}
 		}
 
+		for (int i = 0; i < 3; i++) {
+			int sum = 0;
+			for (int j = 0; j < 3; j++) {
+				sum += square[j][i];
+			}
+			if (sum != 15) {
+				return false;
+			}
+		}
+
 		// Checking for forward diagonal
-		if (square[0][0] + square[1][1] + square[2][2] != 15) {
+		if ((square[0][0] + square[1][1] + square[2][2]) != 1){
 			return false;
 		}
 		// Checking for backward diagonal
-		if (square[2][0] + square[1][1] + square[0][2] != 15) {
+		if ((square[2][0] + square[1][1] + square[0][2]) != 15) {
 			return false;
 		}
 
