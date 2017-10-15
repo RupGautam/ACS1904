@@ -12,119 +12,97 @@ import java.util.Scanner;
 
 public class LoShuMagicSquare {
 
-	public static void main(String[] args) {
-		int[][] square = new int[3][3];
-		Scanner kb = new Scanner ( System.in );
+  public static void main(String[] args) {
+    //Create square 2d array to hold the users inputs
+    int[][] square = new int[3][3];
 
-		// Read in the user's magic square.
-		System.out.println ( "Please enter your magic square." );
-		for (int i = 0; i < 3; i++) {
-			System.out.println ( "Enter For Row #" + (i + 1) + " :" );
-			for (int j = 0; j < 3; j++) {
-				System.out.print ( "Enter Column #" + (j + 1) + " :" );
-				square[i][j] = kb.nextInt ( );
-				if (square[i][j] < 1 || square[i][j] > 9) {
-					System.out.println ( "I am here" );
-					System.exit ( 0 );
-				}
 
-			}
-		}
-			if (checkForSums ( square ) && checkForDup ( square ))
-				System.out.println ( "It's a Magic Square" );
-			else
-				System.out.println ( "It's not a Magic Square" );
+    //scanner object
+    Scanner kb = new Scanner(System.in);
+    //Starting reading user input
+    System.out.println("------------------------");
+    System.out.println("----- Magic Square -----");
+    System.out.println("------------------------");
 
-	}
+    for (int i = 0; i < 3; i++) {
+      System.out.println("Row Number " + (i + 1));
+      for (int j = 0; j < 3; j++) {
+        System.out.print("Enter number " + +(j + 1) + " :");
+        // Now store the inputted value into square
+        square[i][j] = kb.nextInt();
+        if (square[i][j] < 1 || square[i][j] > 9)
+          System.out.println("Invalid number, Please enter 0-9.");
+      }
+    }
+    if (isTrue(square)) {
+      System.out.println("You have Magic Square!");
+      System.out.print("  -- -- -- --\n");
+      System.out.println(" | " + square[0][0] + " | " + square[0][1] + " | " + square[0][2] + " | ");
+      System.out.print("  -- -- -- --\n");
+      System.out.println(" | " + square[1][0] + " | " + square[1][1] + " | " + square[1][2] + " |");
+      System.out.print("  -- -- -- --\n");
+      System.out.println(" | " + square[2][0] + " | " + square[2][1] + " | " + square[2][2] + " | ");
+      System.out.print("  -- -- -- --");
+    } else {
+      System.out.println("It's not a Magic Square!");
+    }
+  }
 
-	/**
-	 * Returns true if all 3x3 has valid 1 - 9 numbers (no-repetition of numbers)
-	 *
-	 * @return Returns true if all statement passes
-	 */
-	private static boolean checkForDup(int[][] square) {
-		// Store all the input in array
-		int[] count = new int[9];
-		int k = 0;
+  public static boolean isTrue(int[][] square) {
+    int[] temp = new int[9];
+    int sumRows = 0;
+    int sumColumns = 0;
+    int sumForwardDiagonal = 0;
+    int sumBackwardDiagonal = 0;
+    boolean result = true;
+    int count = 0;
 
-		// Fill all row init value as 0
-		for (int i = 0; i < 9; i++) {
-			count[i] = 0;
-		}
-		//For Row
-		for (int i = 0; i < 3; i++) {
-			// For Column
-			for (int j = 0; j < 3; j++) {
-				count[k] = square[i][j];
-				k++;
+    int s = 0;
+    // Checking for dupes
+    for (int i = 0; i < 3; i++) {
+      for (int j = 0; j < 3; j++) {
+        temp[s] = square[i][j];
+        s++;
+        for (int p = 0; p < s; p++) {
+          if (temp[p] != square[i][j]) {
+            result = true;
+            break;
+          } else
+            result = false;
+        }
+      }
+    }
 
-				for (int s = 0; s < k; s++) {
-					if (square[i][j] == count[s]) {
-						System.out.println ( "here bro here!!!" );
-						return false;
-					}
-				}
-			}
-		}
-		return true;
-	}
-		// If any number from 1-9 is missing, then return false
-/*
-		for (int i = 0; i < 9; i++) {
+    // Checking total sum of the Rows
+    for (int i = 0; i < 3; i++) {
+      sumRows = 0;
+      for (int j = 0; j < 3; j++) {
+        sumRows += square[i][j];
+      }
+      if (sumRows != 15)
+        result = false;
+    }
+    // Checking total sum of the columns
+    for (int i = 0; i < 3; i++) {
+      sumColumns = 0;
+      for (int j = 0; j < 3; j++) {
+        sumColumns += square[j][i];
+      }
+      if (sumColumns != 15) {
+        result = false;
+      }
+    }
+    // Checking for forward diagonal
+    if ((square[0][0] + square[1][1] + square[2][2]) != 15) {
+      result = false;
+    }
+    // Checking for backward diagonal
+    if ((square[2][0] + square[1][1] + square[0][2]) != 15) {
+      result = false;
+    }
+    return result;
+  }
 
-		if (count[i] != 1) {
-				System.out.println ( Arrays.toString ( count) );
-				System.out.println ("here bro here" );
-				return false;
-			}
-			else {
-				System.out.print ( "lol" );
-				continue;
-			}
-
-		}
-		return true;
-	}
-*/
-
-	/**
-	 * Returns true when all 3x3 row/col & 2 diagonals sums up 15.
-	 */
-	private static boolean checkForSums(int[][] square) {
-
-		for (int i = 0; i < 3; i++) {
-			int sum = 0;
-			for (int j = 0; j < 3; j++) {
-				sum += square[i][j];
-			}
-			if (sum != 15) {
-				return false;
-			}
-		}
-
-		for (int i = 0; i < 3; i++) {
-			int sum = 0;
-			for (int j = 0; j < 3; j++) {
-				sum += square[j][i];
-			}
-			if (sum != 15) {
-				return false;
-			}
-		}
-
-		// Checking for forward diagonal
-		if ((square[0][0] + square[1][1] + square[2][2]) != 1){
-			return false;
-		}
-		// Checking for backward diagonal
-		if ((square[2][0] + square[1][1] + square[0][2]) != 15) {
-			return false;
-		}
-
-		// If all those statement passed return true
-		return true;
-	}
 }
-
 
 
