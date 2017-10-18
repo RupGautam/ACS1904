@@ -15,31 +15,24 @@ package Class_Assignments.Assignment2;
 
 public class ParkingMeter {
 
-	private float minutesPurchased;
+  private double minutesPurchased;
 
-	/**
-	 * Parking meter reference to super class
-	 * @param minutesPurchased
-	 */
-	public ParkingMeter(int minutesPurchased) {
-		super ( );
-		this.minutesPurchased = minutesPurchased;
-	}
+  /**
+   * Parking meter reference to super class
+   *
+   * @param minutesPurchased Assign minutes purchased to new object
+   */
+  ParkingMeter(double minutesPurchased) {
+    this.minutesPurchased = minutesPurchased;
+  }
 
-	/**
-	 * Returns total minutes purchased
-	 * @return
-	 */
-	public float getMinutesPurchased() {
-		return minutesPurchased;
-	}
-
-	/**
-	 * Sets minutes purchased minutesPurchased
-	 * @param minutesPurchased
-	 */
-	public void setMinutesPurchased(float minutesPurchased) {
-		this.minutesPurchased = minutesPurchased;
-	}
+  /**
+   * Returns total minutes purchased
+   *
+   * @return Returns total purchased minutes
+   */
+  public double getMinutesPurchased() {
+    return this.minutesPurchased;
+  }
 
 }

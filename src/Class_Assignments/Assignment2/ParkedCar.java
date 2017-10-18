@@ -21,8 +21,16 @@ public class ParkedCar {
 	private String licenseNumber;
 	private float minutesParked;
 
-	public ParkedCar(String make, String model, String color, String licenseNumber,
-			float minutesParked) {
+
+  /**
+   * New ParkedCar object
+   * @param make Make of the car
+   * @param model Model of the car
+   * @param color Color of the car
+   * @param licenseNumber License number of the car
+   * @param minutesParked Minutes Purchased
+   */
+	public ParkedCar(String make, String model, String color, String licenseNumber, float minutesParked) {
 		this.make = make;
 		this.model = model;
 		this.color = color;
@@ -30,14 +38,26 @@ public class ParkedCar {
 		this.minutesParked = minutesParked;
 	}
 
+  /**
+   *
+   * @return Return make of the car
+   */
 	public String getMake() {
 		return make;
 	}
 
+  /**
+   *
+   * @param make Make of the car
+   */
 	public void setMake(String make) {
 		this.make = make;
 	}
 
+  /**
+   *
+   * @return Return the model of the car
+   */
 	public String getModel() {
 		return model;
 	}
@@ -46,26 +66,51 @@ public class ParkedCar {
 		this.model = model;
 	}
 
+  /**
+   *
+   * @return Returns the color of the car
+   */
 	public String getColor() {
 		return color;
 	}
 
+  /**
+   *
+   * @param color Color of the car
+   */
 	public void setColor(String color) {
 		this.color = color;
 	}
 
+  /**
+   *
+   * @return Return the licenseNumber
+   */
 	public String getLicenseNumber() {
 		return licenseNumber;
 	}
 
+  /**
+   *
+   * @param licenseNumber Set the licenseNumber
+   */
 	public void setLicenseNumber(String licenseNumber) {
 		this.licenseNumber = licenseNumber;
 	}
 
-	public float getMinutesParked() {
+  /**
+   *
+   * @return Return minutesParked
+   */
+	public double getMinutesParked() {
 		return minutesParked;
 	}
 
+
+  /**
+   *
+   * @param minutesParked minutesParked
+   */
 	public void setMinutesParked(float minutesParked) {
 		this.minutesParked = minutesParked;
 	}

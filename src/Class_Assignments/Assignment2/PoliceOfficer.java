@@ -15,13 +15,14 @@ package Class_Assignments.Assignment2;
 
 public class PoliceOfficer {
 
-	// Officer's Info
+	/* Officer's Info */
+
 	private String officerName;
 	private String officerBadge;
 
 	/**
-	 * @param officerName
-	 * @param officerBadge
+	 * @param officerName Officers Name
+	 * @param officerBadge Officers Badge
 	 */
 	public PoliceOfficer(String officerName, String officerBadge) {
 		this.officerName = officerName;
@@ -35,43 +36,43 @@ public class PoliceOfficer {
 	 * @return Returns null, if no ticket issued
 	 */
 	public ParkingTicket patrol(ParkedCar car, ParkingMeter meter) {
-		this.getOfficerName ( );
-		ParkingTicket ticket = null;
+		//this.getOfficerName ( );
+		//ParkingTicket ticket = null;
 
-		float illegalMin = car.getMinutesParked ( ) - meter.getMinutesPurchased ( );
+		//double illegalMin = car.getMinutesParked ( ) - meter.getMinutesPurchased ( );
 		if (car.getMinutesParked ( ) > meter.getMinutesPurchased ( )) {
-			return new ParkingTicket ( car, this, illegalMin );
+			return new ParkingTicket (car, this, meter );
 		}
 		return null;
 	}
 
 	/**
-	 * Returns the officer Name
-	 * @return
+	 *
+	 * @return Returns the officer Name
 	 */
 	public String getOfficerName() {
 		return officerName;
 	}
 
 	/**
-	 * Sets officer name
-	 * @param officerName
+	 *
+	 * @param officerName Sets officer name
 	 */
 	public void setOfficerName(String officerName) {
 		this.officerName = officerName;
 	}
 
 	/**
-	 * Returns officers badge
-	 * @return
+	 *
+	 * @return Returns officers badge
 	 */
 	public String getOfficerBadge() {
 		return officerBadge;
 	}
 
 	/**
-	 * Set officer badge
-	 * @param officerBadge
+	 *
+	 * @param officerBadge Set officer badge
 	 */
 	public void setOfficerBadge(String officerBadge) {
 		this.officerBadge = officerBadge;

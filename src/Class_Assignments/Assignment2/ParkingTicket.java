@@ -10,81 +10,72 @@ package Class_Assignments.Assignment2;
 
 /**
  * Created by RupGautam on 02/10/2017.
+ *
+ * @author RupGautam
  */
 
 
 public class ParkingTicket {
 
-	// Report fields
-	private static int count = 0;
-	public final double BASE_FINE = 25.0;
-	public final double HOURLY_FINE = 10.0;
-	private ParkedCar car;
-	private PoliceOfficer officer;
-	private PoliceOfficer illegalMin;
-	private double fine;
-	private float minutes;
-	private double totalFine;
+  // This are fields
+  private static int count = 0;
+  public final double BASE_FINE = 25.0;
+  public final double HOURLY_FINE = 10.0;
+  private ParkedCar car;
+  private PoliceOfficer officer;
+  private ParkingMeter meter;
+  private double totalFine = 0.0;
+  private double overTimeHours = 0.0;
 
-	/**
-	 *
-	 * @param car
-	 * @param officer
-	 * @param minutes
-	 */
-	public ParkingTicket(ParkedCar car, PoliceOfficer officer, float minutes) {
-		super ( );
-		this.car = car;
-		this.officer = officer;
-		this.minutes = minutes;
 
-		calculateFine ( );
-	}
+  /**
+   * @param car new car Object
+   * @param officer new officer Object
+   */
+  public ParkingTicket(ParkedCar car, PoliceOfficer officer) {
+    this.car = car;
+    this.officer = officer;
 
-	/**
-	 *
-	 * @param car
-	 * @param illegalMin
-	 */
-	public ParkingTicket(ParkedCar car, PoliceOfficer illegalMin) {
-		this.car = car;
-		this.illegalMin = illegalMin;
-	}
+    calculateFine();
+  }
 
-	/**
-	 *
-	 */
-	private void calculateFine() {
-		double hours = minutes / 60.0;
-		int hourInt = (int) hours;
+  /**
+   * @param car New car Object
+   * @param officer New officer Object
+   */
+  public ParkingTicket(ParkedCar car, PoliceOfficer officer, ParkingMeter meter) {
+    this.car = car;
+    this.officer = officer;
+    this.meter = meter;
 
-		if ((hours - hourInt) > 0) {
-			hourInt++;
-		}
-		fine = BASE_FINE;
+    calculateFine();
+  }
 
-		fine += (hourInt * HOURLY_FINE);
+  /**
+   *
+   * @return Returns the totalFine to be paid
+   */
+  private double calculateFine() {
 
-	}
+    overTimeHours = Math.ceil((car.getMinutesParked() - meter.getMinutesPurchased()) / 60) - 1;
 
-	@Override
-	public String toString() {
-		// Using string builder to print the ticket
-		StringBuilder printMessage = new StringBuilder ( );
-		System.out.println ( "\n***** ParkingTicket *****" );
-		System.out.print ( "\nParking Ticket Number:" + "WPGTICKET" + count++ );
-		System.out.print ( "\n\nOfficer on duty: " + officer.getOfficerName ( ) );
-		System.out.println ( "\n\nCar info: " + car.getMake ( ) + " " + car.getModel ( ) );
-		System.out.print ( "\n\nCar License: " + car.getLicenseNumber ( ) );
-		System.out.print ( "\n\nMinutes Parked: " + minutes );
-		System.out.print ( "\n\nBase Fine: " + BASE_FINE );
-		System.out.print ( "\n\nHourly Fine: " + HOURLY_FINE );
-		System.out.println ( "\n--------------------------" );
-		System.out.print ( "Total Fine: " + (HOURLY_FINE + BASE_FINE) );
-		System.out.println ( "\n--------------------------" );
+    totalFine = overTimeHours * HOURLY_FINE + BASE_FINE;
+    return totalFine;
+  }
 
-		return printMessage.toString ( );
-	}
+
+  @Override
+  public String toString() {
+    return "\n***** ParkingTicket *****"
+        + "\nCar info: " + car.getMake() + " " + car.getModel()
+        + "\nCar License: " + car.getLicenseNumber()
+        + "\nTotal Hour Parked: " + Math.ceil(car.getMinutesParked() / 60)
+        + "\n--------------------------"
+        + "\nTotal Fine: " + calculateFine()
+        + "\n--------------------------"
+        + "\nTicket Issued By: " + officer.getOfficerName();
+
+  }
 
 }
 

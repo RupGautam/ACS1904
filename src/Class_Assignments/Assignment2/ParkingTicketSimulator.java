@@ -22,7 +22,7 @@ public class ParkingTicketSimulator {
 
 // Create a ParkedCar object.
 // The car was parked for 125 minutes.
-		ParkedCar car = new ParkedCar ( "Volkswagen", "1972", "Red", "147RHZM", 120 );
+		ParkedCar car = new ParkedCar ( "Volkswagen", "1972", "Red", "147RHZM", 125 );
 		// Create a PoliceOfficer object.
 		PoliceOfficer officer = new PoliceOfficer ( "Joe Friday",
 				"4788" );

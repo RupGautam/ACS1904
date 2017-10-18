@@ -30,8 +30,9 @@ public class LoShuMagicSquare {
         System.out.print("Enter number " + +(j + 1) + " :");
         // Now store the inputted value into square
         square[i][j] = kb.nextInt();
-        if (square[i][j] < 1 || square[i][j] > 9)
+        if (square[i][j] < 1 || square[i][j] > 9) {
           System.out.println("Invalid number, Please enter 0-9.");
+        }
       }
     }
     if (isTrue(square)) {
@@ -67,8 +68,9 @@ public class LoShuMagicSquare {
           if (temp[p] != square[i][j]) {
             result = true;
             break;
-          } else
+          } else {
             result = false;
+          }
         }
       }
     }
@@ -79,8 +81,9 @@ public class LoShuMagicSquare {
       for (int j = 0; j < 3; j++) {
         sumRows += square[i][j];
       }
-      if (sumRows != 15)
+      if (sumRows != 15) {
         result = false;
+      }
     }
     // Checking total sum of the columns
     for (int i = 0; i < 3; i++) {
