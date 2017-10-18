@@ -12,7 +12,6 @@ package Class_Assignments.Assignment2;
  * Created by RupGautam on 02/10/2017.
  */
 
-
 public class ParkingTicketSimulator {
 
 	public static void main(String[] args) {

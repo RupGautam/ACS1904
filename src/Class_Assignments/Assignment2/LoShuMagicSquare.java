@@ -11,44 +11,55 @@ package Class_Assignments.Assignment2;
 import java.util.Scanner;
 
 public class LoShuMagicSquare {
-
   public static void main(String[] args) {
     //Create square 2d array to hold the users inputs
     int[][] square = new int[3][3];
-
-
-    //scanner object
+    char userSelection;
     Scanner kb = new Scanner(System.in);
     //Starting reading user input
     System.out.println("------------------------");
     System.out.println("----- Magic Square -----");
-    System.out.println("------------------------");
+    System.out.println("------------------------\n");
 
-    for (int i = 0; i < 3; i++) {
-      System.out.println("Row Number " + (i + 1));
-      for (int j = 0; j < 3; j++) {
-        System.out.print("Enter number " + +(j + 1) + " :");
-        // Now store the inputted value into square
-        square[i][j] = kb.nextInt();
-        if (square[i][j] < 1 || square[i][j] > 9) {
-          System.out.println("Invalid number, Please enter 0-9.");
+    do {
+      for (int i = 0; i < 3; i++) {
+        System.out.println("Row Number " + (i + 1));
+        for (int j = 0; j < 3; j++) {
+          System.out.print("Enter number " + +(j + 1) + " :");
+          // Now store the inputted value into square
+          square[i][j] = kb.nextInt();
+          if (square[i][j] < 0 || square[i][j] > 9) {
+            System.out.println("Invalid number, Please enter 0-9.");
+            System.exit(0);
+          }
         }
       }
-    }
-    if (isTrue(square)) {
-      System.out.println("You have Magic Square!");
-      System.out.print("  -- -- -- --\n");
-      System.out.println(" | " + square[0][0] + " | " + square[0][1] + " | " + square[0][2] + " | ");
-      System.out.print("  -- -- -- --\n");
-      System.out.println(" | " + square[1][0] + " | " + square[1][1] + " | " + square[1][2] + " |");
-      System.out.print("  -- -- -- --\n");
-      System.out.println(" | " + square[2][0] + " | " + square[2][1] + " | " + square[2][2] + " | ");
-      System.out.print("  -- -- -- --");
-    } else {
-      System.out.println("It's not a Magic Square!");
-    }
+      {
+        if (isTrue(square)) {
+          System.out.println("You have Magic Square!");
+          System.out.print("  -- -- -- --\n");
+          System.out.println(" | " + square[0][0] + " | " + square[0][1] + " | " + square[0][2] + " | ");
+          System.out.print("  -- -- -- --\n");
+          System.out.println(" | " + square[1][0] + " | " + square[1][1] + " | " + square[1][2] + " |");
+          System.out.print("  -- -- -- --\n");
+          System.out.println(" | " + square[2][0] + " | " + square[2][1] + " | " + square[2][2] + " | ");
+          System.out.print("  -- -- -- --\n");
+        } else {
+          System.out.println("It's not a Magic Square!");
+        }
+        System.out.println("Do you want to try again");
+        System.out.print("Y - Yes | N - No");
+        kb.nextLine();
+      }
+      userSelection = kb.next().charAt(0);
+    } while (userSelection == 'y' || userSelection == 'Y');
   }
 
+  /**
+   *
+   * @param square Square[][] holding the arrays
+   * @return Returns true, if and only all the statements returns true.
+   */
   public static boolean isTrue(int[][] square) {
     int[] temp = new int[9];
     int sumRows = 0;
