@@ -19,7 +19,7 @@ public class ParkedCar {
 	private String model;
 	private String color;
 	private String licenseNumber;
-	private float minutesParked;
+	private double minutesParked;
 
 
   /**
@@ -30,7 +30,8 @@ public class ParkedCar {
    * @param licenseNumber License number of the car
    * @param minutesParked Minutes Purchased
    */
-	public ParkedCar(String make, String model, String color, String licenseNumber, float minutesParked) {
+	public ParkedCar(String make, String model, String color, String licenseNumber, double
+	  minutesParked) {
 		this.make = make;
 		this.model = model;
 		this.color = color;
