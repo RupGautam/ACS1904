@@ -17,8 +17,7 @@ public class AccountDriver {
     String money_out;
     boolean completed;
 // Test the CheckingAccount class.
-    CheckingAccount myCheckingAccount =
-        new CheckingAccount("Benjamin Franklin", 1000);
+    CheckingAccount myCheckingAccount = new CheckingAccount("Benjamin Franklin", 1000);
     System.out.println("Account Number " +
         myCheckingAccount.getAccountNumber() + " belonging to " + myCheckingAccount.getOwner());
     money = String.format("%.2f",
@@ -45,10 +44,9 @@ public class AccountDriver {
           ", balance = $" + money);
     }
     System.out.println();
-    6
+
 // Test the SavingsAccount class.
-    SavingsAccount yourAccount =
-        new SavingsAccount("William Shakespeare", 400);
+    SavingsAccount yourAccount = new SavingsAccount("William Shakespeare", 400);
     System.out.println("Account Number " +
         yourAccount.getAccountNumber() +
         " belonging to " +

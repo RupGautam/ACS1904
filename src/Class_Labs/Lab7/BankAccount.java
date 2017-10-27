@@ -58,7 +58,6 @@ public abstract class BankAccount {
      */
     public BankAccount(BankAccount oldAccount, double amount) {
         owner = oldAccount.owner;
-        9
         balance = amount;
         accountNumber = oldAccount.accountNumber;
     }
