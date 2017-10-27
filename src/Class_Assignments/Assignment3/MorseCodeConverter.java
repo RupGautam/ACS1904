@@ -6,10 +6,25 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package Class_Assignments.Assignment3;/**
+package Class_Assignments.Assignment3;
+
+import java.util.Scanner;
+
+/**
  * Created by RupGautam on 15/10/2017.
  */
 
 
 public class MorseCodeConverter {
+
+  public static void main(String[] args) {
+    Scanner kb = new Scanner(System.in);
+    String input;
+
+    System.out.println("please enter string: ");
+    input = kb.nextLine();
+    Morse secret = new Morse(input);
+
+    System.out.println(secret.getMorsecode());
+  }
 }

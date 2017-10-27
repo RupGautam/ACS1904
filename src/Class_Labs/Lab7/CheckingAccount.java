@@ -17,12 +17,19 @@ public class CheckingAccount extends BankAccount {
   private static double FEE = 0.15;
 
   public CheckingAccount(String name, double amount) {
+    //name = super.getOwner();
+    super(name, amount);
 
-    name = super.getOwner();
-    super.deposit(amount);
+    /* task1 #4 */
+    setAccountNumber(getAccountNumber() + "-10");
 
   }
 
-
+  /* task1 #5 */
+  @Override
+  public boolean withdraw(double amount) {
+    amount += FEE;
+    return super.withdraw(amount);
+  }
 
 }

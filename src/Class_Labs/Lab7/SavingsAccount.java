@@ -6,30 +6,37 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package Class_Labs.Lab7;/**
+package Class_Labs.Lab7;
+
+/**
  * Created by RupGautam on 26/10/2017.
  */
 
 
 public class SavingsAccount extends BankAccount {
-  private double Rate = 2.5;
+  private double Rate = 0.025;
   private int savingsNumber = 0;
   private String accountNumber;
 
-  public SavingsAccount(String name, double amount){
+  public SavingsAccount(String name, double amount) {
+    super(name, amount);
+
+    accountNumber = super.getAccountNumber() + "-" + savingsNumber;
+  }
+
+  public SavingsAccount(SavingsAccount oldAccount, double amount) {
 
   }
 
-  public SavingsAccount(SavingsAccount oldAccount, double amount){
+  public void postInterest() {
+    double newBalance = getBalance() * (1 + Rate / 12);
 
-  }
-
-  public void postInterest(){
+    setBalance(newBalance);
 
   }
 
   @Override
-  public String getAccountNumber(){
+  public String getAccountNumber() {
 
     return accountNumber;
   }
