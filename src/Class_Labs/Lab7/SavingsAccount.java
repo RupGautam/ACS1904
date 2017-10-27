@@ -18,16 +18,20 @@ public class SavingsAccount extends BankAccount {
   private int savingsNumber = 0;
   private String accountNumber;
 
+  /* task2 #5 */
   public SavingsAccount(String name, double amount) {
     super(name, amount);
 
     accountNumber = super.getAccountNumber() + "-" + savingsNumber;
   }
 
+  /* task2 #8 */
   public SavingsAccount(SavingsAccount oldAccount, double amount) {
+    super(oldAccount, amount);
 
   }
 
+  /* task2 #6 */
   public void postInterest() {
     double newBalance = getBalance() * (1 + Rate / 12);
 
@@ -35,6 +39,7 @@ public class SavingsAccount extends BankAccount {
 
   }
 
+  /* task2 #7 */
   @Override
   public String getAccountNumber() {
 
