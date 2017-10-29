@@ -18,42 +18,48 @@ public class Morse {
   int NUM_CHARS = 40;
   private String original = "ABCDEFGHIJKLMNOPQRSTVUWXYZ";
   private String mcode;
-  private char[] regular = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E',
-      'F', 'G', 'H', 'I', 'J', 'K', 'L',
-      'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
-      'U', 'V', 'W', 'X', 'Y', 'Z'};
-  private String[] morse = {".-", "-...", "-.-.", "-..", ".",
-      "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--",
-      "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-",
-      ".--", "-..-", "-.--", "--.."};
+  private char[] english = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+      'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
+      'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
+      ',', '.', '?'};
+  private String[] morse = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..",
+      ".---", "-.-", ".-..", "--", "-.", "---", ".---.", "--.-", ".-.",
+      "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--..", ".----",
+      "..---", "...--", "....-", ".....", "-....", "--...", "---..", "----.",
+      "-----", "--..--", ".-.-.-", "..--.."};
 
 
   public Morse(String input) {
-    this.original = input;
-    char[] ch = input.toCharArray();
-    for (int i = 0; i < ch.length; i++) {
-      this.mcode += toMorse(ch[i]);
+    original = input;
+    //check if words are more than 40 words.
+    this.mcode = "";
+    char[] chars = input.toCharArray();
+    for (int i = 0; i < chars.length; i++) {
+      this.mcode += toMorse(chars[i]);
     }
   }
 
-  public String toMorse(char ch) {
-    if (Character.isDigit(ch)) {
-      int i = Character.getNumericValue(ch);
-      return morse[i];
-    } else if (Character.isLetter(ch)) {
-      char chars = Character.toUpperCase(ch);
-      int i = Character.getNumericValue(chars);
-      return morse[i];
-    } else {
-      return null;
+  public String toMorse(char chars) {
+    for (int i = 0; i < chars; i++) {
+      if (Character.isDigit(chars)){
+        return this.morse[i];
+      }
+      else if(Character.isLetter(chars)){
+        return this.morse[i];
+      }
+      else {
+        return null;
+      }
     }
-  }
-
-  public String getMorsecode() {
     return mcode;
   }
 
+  public String getMorsecode() {
+    return this.mcode;
+  }
+
   public String getOriginal() {
-    return original;
+    return this.original;
   }
 }
+

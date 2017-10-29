@@ -29,6 +29,9 @@ public class SavingsAccount extends BankAccount {
   public SavingsAccount(SavingsAccount oldAccount, double amount) {
     super(oldAccount, amount);
 
+    savingsNumber = oldAccount.savingsNumber + 1;
+    accountNumber = super.getAccountNumber() + "-" + savingsNumber;
+
   }
 
   /* task2 #6 */
