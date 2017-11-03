@@ -122,12 +122,8 @@ public class Money {
 	 */
 	public boolean equals(Money amount) {
 		boolean status;
-		if (this.dollars == amount.dollars &&
-				this.cents == amount.cents) {
-			status = true;
-		} else {
-			status = false;
-		}
+    status = this.dollars == amount.dollars &&
+        this.cents == amount.cents;
 		return status;
 	}
 

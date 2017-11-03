@@ -31,11 +31,7 @@ public class Driver {
 	 * If users answers > 15, return true, if not false
 	 */
 	public boolean isPassed() {
-		if (totalCorrect > 14) {
-			return true;
-		} else {
-			return false;
-		}
+    return totalCorrect > 14;
 	}
 
 	/**
