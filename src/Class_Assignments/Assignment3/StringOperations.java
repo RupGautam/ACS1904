@@ -16,28 +16,6 @@ import java.util.Arrays;
 
 
 public class StringOperations {
-  public static void main(String args[]) {
-
-    String str1 = "harsh patel"; //h
-    System.out.println(mostFrequent(str1));
-
-    String str2 = "A barcelona best club a";//
-    System.out.println(mostFrequent(str2));
-
-    String str3 = "additional account";//A
-    System.out.println(mostFrequent(str3));
-
-    String str4 = "Rup GauRtam Rup GautamR"; //U
-    System.out.println(mostFrequent(str4));
-
-    System.out.println(replaceSubString("The dog jumped over the fence",
-        "the",
-        "that"));
-
-    System.out.println(replaceSubString("hello world", "world", "nepal"));
-
-  }
-
   public static int wordCount(String input) {
     int countChars;
     String[] words = input.split(" ");
