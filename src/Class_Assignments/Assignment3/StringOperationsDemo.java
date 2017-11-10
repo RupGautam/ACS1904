@@ -17,7 +17,7 @@ public class StringOperationsDemo {
   public static void main(String[] args) {
     System.out.println("The words in the sentence " +
         "(He is a good guy) are " + StringOperations.wordCount("He is a good guy"));
-    char[] array = {'d', 'h', 'r', 'u', 'v', 'i', 'k'};
+    char[] array = {'b', 'a', 'r', 'c', 'e', 'l', 'o', 'n', 'a'};
     System.out.println("The arrayToString medhoud returns: '" + StringOperations.arrayToString(array) + "'.");
     System.out.println("The most frequent character in string (Bank Account)" +
         " is: " + StringOperations.mostFrequent("Bank Account"));
