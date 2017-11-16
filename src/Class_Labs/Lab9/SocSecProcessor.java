@@ -10,26 +10,54 @@ package Class_Labs.Lab9;
 
 import java.util.Scanner;
 
-/**
- * Created by RupGautam on 10/11/2017.
- */
-
 
 public class SocSecProcessor {
+  private static int SSN_LENGTH= 11;
+
   public static void main(String[] args) {
     String input;
+    String name;
+    String socSecNumber;
+    String response;
+    char answer = 'y';
     Scanner kb = new Scanner(System.in);
-    System.out.println("Please enter your name: ");
-    input = kb.nextLine();
 
-    
-
+    while (Character.toUpperCase(answer) == 'Y') {
+      try {
+        System.out.print("Name: ");
+        name = kb.nextLine();
+        System.out.print("SSN: ");
+        socSecNumber = kb.nextLine();
+        if (isValid(socSecNumber)) {
+          System.out.println(name + " " + socSecNumber + " is Valid");
+        }
+      } catch (SocSecException e) {
+        System.out.println(e.getMessage());
+      } finally {
+        System.out.print("Continue (Y/N)");
+        response = kb.nextLine();
+        answer = response.charAt(0);
+      }
+    }
 
   }
 
-  public static boolean isValid(String ssn) throws SocSecException{
-
-
-    return true;
+  private static boolean isValid(String ssn) throws SocSecException {
+    boolean goodSoFar = true;
+    int index = 0;
+    if (ssn.length() != SSN_LENGTH) { // ssn will have 11 characters including dashes.
+      throw new SocSecException(" Wrong number of characters");
+    }
+    while (goodSoFar && index < SSN_LENGTH) {
+      if (index == 3 || index == 6) {
+        if (ssn.charAt(index) != '-') {
+          throw new SocSecException(" Dashes at wrong position");
+        }
+      } else if (!Character.isDigit(ssn.charAt(index))) {
+        throw new SocSecException(" Contains non numeric characters");
+      }
+      index++;
+    }
+    return goodSoFar;
   }
 }

@@ -6,15 +6,15 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package Class_Labs.Lab9;/**
+package Class_Labs.Lab9;
+
+/**
  * Created by RupGautam on 10/11/2017.
  */
 
 
 public class SocSecException extends Exception {
-  public String SocSecException(String err) {
-      super.getMessage();
-
-    return null;
+  public SocSecException(String err) {
+    super("Invalid social security number" + err);
   }
 }
