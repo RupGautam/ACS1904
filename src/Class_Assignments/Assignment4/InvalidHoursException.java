@@ -6,26 +6,14 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package Class_Assignments.Assignment4;
-
-/**
+package Class_Assignments.Assignment4;/**
  * Created by RupGautam on 2017-11-27.
  */
 
 
-public class shipDemo {
-  public static void main(String[] args) {
-
-    CargoShip obj1 = new CargoShip("Tom", "600", 500);
-
-    CruiseShip obj2 = new CruiseShip("Jerry", "", 500);
-    Ship obj3 = new Ship("Tom", "900");
-
-    Ship[] array = {obj1, obj2, obj3};
-
-    for (Ship object : array) {
-      System.out.println(object + "\n");
-    }
-
+public class InvalidHoursException extends Exception {
+  public InvalidHoursException(double err) {
+    super(" Invalid hours" + err);
   }
 }
+

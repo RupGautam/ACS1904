@@ -13,19 +13,9 @@ package Class_Assignments.Assignment4;
  */
 
 
-public class shipDemo {
-  public static void main(String[] args) {
-
-    CargoShip obj1 = new CargoShip("Tom", "600", 500);
-
-    CruiseShip obj2 = new CruiseShip("Jerry", "", 500);
-    Ship obj3 = new Ship("Tom", "900");
-
-    Ship[] array = {obj1, obj2, obj3};
-
-    for (Ship object : array) {
-      System.out.println(object + "\n");
-    }
-
+public class InvalidNameException extends Exception{
+  public InvalidNameException(String err){
+    super("Invalid Name, Please provide employee name" +err);
   }
 }
+

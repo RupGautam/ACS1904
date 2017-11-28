@@ -13,19 +13,25 @@ package Class_Assignments.Assignment4;
  */
 
 
-public class shipDemo {
+public class PayrollDemo {
   public static void main(String[] args) {
 
-    CargoShip obj1 = new CargoShip("Tom", "600", 500);
+    // Test for calling out the invalid name exception
+    Payroll test1 = new Payroll("", 101);
+    System.out.println(test1.getName());
 
-    CruiseShip obj2 = new CruiseShip("Jerry", "", 500);
-    Ship obj3 = new Ship("Tom", "900");
 
-    Ship[] array = {obj1, obj2, obj3};
+    //Test for calling out the invalid ID exception
+    Payroll test2 = new Payroll("Jane Doe", 1);
+    System.out.println(test2.getIdNumber());
 
-    for (Ship object : array) {
-      System.out.println(object + "\n");
-    }
+//    Payroll test3 = new Payroll();
+
+    //Set hour worked.
+    test1.setHoursWorked(40.4);
+    test1.setPayRate(12.3);
+
+
 
   }
 }
