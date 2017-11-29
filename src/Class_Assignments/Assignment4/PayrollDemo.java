@@ -14,24 +14,47 @@ package Class_Assignments.Assignment4;
 
 
 public class PayrollDemo {
-  public static void main(String[] args) {
-
-    // Test for calling out the invalid name exception
-    Payroll test1 = new Payroll("", 101);
-    System.out.println(test1.getName());
-
-
-    //Test for calling out the invalid ID exception
-    Payroll test2 = new Payroll("Jane Doe", 1);
-    System.out.println(test2.getIdNumber());
-
-//    Payroll test3 = new Payroll();
+  public static void main(String[] args) throws Exception{
 
     //Set hour worked.
-    test1.setHoursWorked(40.4);
-    test1.setPayRate(12.3);
+    PayRoll1 testObj[] = new PayRoll1[5];
+    try {
+      // no error test
+      testObj[0] = new PayRoll1("John Doe", 100);
+      //test obj for name error test
+      testObj[1] = new PayRoll1("Jone Huge", 200);
+      // test obj for id number error test
+      testObj[2] = new PayRoll1("Luke Martin", 0);
+      // test obj for pay rate
+      testObj[3] = new PayRoll1("Jane Doe", 400);
+      // test obj for hour worked
+      testObj[4] = new PayRoll1("Jesse Penney", 500);
 
+    } catch (InvalidNameException | InvalidIDException e) {
+      System.out.println(e.getMessage());
+    }
 
+    try {
+      testObj[1] = new PayRoll1("", 200);
+    } catch (InvalidNameException e) {
+      System.out.println(e.getMessage());
+    }
+    try {
+      testObj[2] = new PayRoll1("John Doe", 0);
+    } catch (InvalidIDException e) {
+      System.out.println(e.getMessage());
+    }
+    try {
+      testObj[3].setPayRate(26);
+    } catch (InvalidHourlyRateException e) {
+      System.out.println(e.getMessage());
+    }
+
+    try {
+      testObj[4].setHoursWorked(90);
+    } catch (InvalidHoursException e) {
+      System.out.println(e.getMessage());
+    }
 
   }
 }

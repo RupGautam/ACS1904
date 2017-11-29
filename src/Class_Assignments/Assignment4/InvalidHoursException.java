@@ -12,8 +12,8 @@ package Class_Assignments.Assignment4;/**
 
 
 public class InvalidHoursException extends Exception {
-  public InvalidHoursException(double err) {
-    super(" Invalid hours" + err);
+  public InvalidHoursException(double h){
+    super("Error: Invalid hours " + h);
   }
 }
 

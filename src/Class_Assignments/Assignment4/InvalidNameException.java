@@ -14,8 +14,8 @@ package Class_Assignments.Assignment4;
 
 
 public class InvalidNameException extends Exception{
-  public InvalidNameException(String err){
-    super("Invalid Name, Please provide employee name" +err);
+  public InvalidNameException(String n){
+    super("Error: Invalid Name " + n);
   }
 }
 

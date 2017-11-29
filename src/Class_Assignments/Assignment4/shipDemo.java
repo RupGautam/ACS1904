@@ -16,16 +16,15 @@ package Class_Assignments.Assignment4;
 public class shipDemo {
   public static void main(String[] args) {
 
-    CargoShip obj1 = new CargoShip("Tom", "600", 500);
+    CargoShip obj1 = new CargoShip("Emma Mærsk", "1930", 14770);
 
-    CruiseShip obj2 = new CruiseShip("Jerry", "", 500);
-    Ship obj3 = new Ship("Tom", "900");
+    CruiseShip obj2 = new CruiseShip("Jerry", "2001", 500);
 
-    Ship[] array = {obj1, obj2, obj3};
+
+    Ship[] array = {obj1, obj2};
 
     for (Ship object : array) {
       System.out.println(object + "\n");
     }
-
   }
 }

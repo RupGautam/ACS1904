@@ -6,13 +6,15 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package Class_Assignments.Assignment4;/**
+package Class_Assignments.Assignment4;
+
+/**
  * Created by RupGautam on 2017-11-27.
  */
 
 
 public class InvalidHourlyRateException extends Exception {
-  public InvalidHourlyRateException(double err) {
-    super(" Invalid Hourly Rate" + err);
+  public InvalidHourlyRateException(double hr){
+    super("Error: Invalid Hourly Rate "+ hr);
   }
 }

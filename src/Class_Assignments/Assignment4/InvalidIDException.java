@@ -13,7 +13,7 @@ package Class_Assignments.Assignment4;
  */
 
 public class InvalidIDException extends Exception {
-  public InvalidIDException(int err){
-    super("Invalid Employee ID " +err);
+  public InvalidIDException(int id){
+    super("Error: Invalid Employee ID " + id);
   }
 }

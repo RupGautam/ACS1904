@@ -60,7 +60,7 @@ public class Payroll {
   public void setIdNumber(int i) {
     try {
       if (i <= 0) {
-        System.out.println("Throw me!");
+        System.out.println("TEST: Throw me!");
         throw new InvalidIDException(i);
       }
       idNumber = i;
