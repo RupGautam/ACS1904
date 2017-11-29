@@ -20,6 +20,12 @@ public class Payroll {
   private double hoursWorked;
 
 
+  /**
+   * Instantiates a new Payroll.
+   *
+   * @param n the n
+   * @param i the
+   */
   public Payroll(String n, int i) {
     try {
       if (n.equals("")) {
@@ -36,11 +42,21 @@ public class Payroll {
 
   }
 
+  /**
+   * Gets name.
+   *
+   * @return the name
+   */
   public String getName() {
 
     return name;
   }
 
+  /**
+   * Sets name.
+   *
+   * @param n the n
+   */
   public void setName(String n) {
     try {
       if (n.equals("")) {
@@ -53,10 +69,20 @@ public class Payroll {
     }
   }
 
+  /**
+   * Gets id number.
+   *
+   * @return the id number
+   */
   public int getIdNumber() {
     return idNumber;
   }
 
+  /**
+   * Sets id number.
+   *
+   * @param i the
+   */
   public void setIdNumber(int i) {
     try {
       if (i <= 0) {
@@ -70,10 +96,20 @@ public class Payroll {
     }
   }
 
+  /**
+   * Gets pay rate.
+   *
+   * @return the pay rate
+   */
   public double getPayRate() {
     return payRate;
   }
 
+  /**
+   * Sets pay rate.
+   *
+   * @param p the p
+   */
   public void setPayRate(double p) {
     try {
       if (p > 25 || p < 0) {
@@ -86,10 +122,20 @@ public class Payroll {
 
   }
 
+  /**
+   * Gets hours worked.
+   *
+   * @return the hours worked
+   */
   public double getHoursWorked() {
     return hoursWorked;
   }
 
+  /**
+   * Sets hours worked.
+   *
+   * @param h the h
+   */
   public void setHoursWorked(double h) {
     try {
       if (h > 84 || h < 0) {
@@ -101,6 +147,11 @@ public class Payroll {
     }
   }
 
+  /**
+   * Gets gross pay.
+   *
+   * @return the gross pay
+   */
   public double getGrossPay() {
     return hoursWorked * payRate;
   }

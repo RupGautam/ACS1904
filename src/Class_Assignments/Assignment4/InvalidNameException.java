@@ -14,6 +14,11 @@ package Class_Assignments.Assignment4;
 
 
 public class InvalidNameException extends Exception{
+  /**
+   * Instantiates a new Invalid name exception.
+   *
+   * @param n the n
+   */
   public InvalidNameException(String n){
     super("Error: Invalid Name " + n);
   }

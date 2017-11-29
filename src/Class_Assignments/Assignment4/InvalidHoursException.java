@@ -6,12 +6,19 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package Class_Assignments.Assignment4;/**
+package Class_Assignments.Assignment4;
+
+/**
  * Created by RupGautam on 2017-11-27.
  */
 
 
 public class InvalidHoursException extends Exception {
+  /**
+   * Instantiates a new Invalid hours exception.
+   *
+   * @param h the h
+   */
   public InvalidHoursException(double h){
     super("Error: Invalid hours " + h);
   }

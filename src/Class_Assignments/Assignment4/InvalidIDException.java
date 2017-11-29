@@ -11,8 +11,12 @@ package Class_Assignments.Assignment4;
 /**
  * Created by RupGautam on 2017-11-27.
  */
-
 public class InvalidIDException extends Exception {
+  /**
+   * Instantiates a new Invalid id exception.
+   *
+   * @param id the id
+   */
   public InvalidIDException(int id){
     super("Error: Invalid Employee ID " + id);
   }

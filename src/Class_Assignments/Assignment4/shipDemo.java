@@ -14,6 +14,11 @@ package Class_Assignments.Assignment4;
 
 
 public class shipDemo {
+  /**
+   * The entry point of application.
+   *
+   * @param args the input arguments
+   */
   public static void main(String[] args) {
 
     CargoShip obj1 = new CargoShip("Emma Mærsk", "1930", 14770);

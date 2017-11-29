@@ -14,6 +14,11 @@ package Class_Assignments.Assignment4;
 
 
 public class InvalidHourlyRateException extends Exception {
+  /**
+   * Instantiates a new Invalid hourly rate exception.
+   *
+   * @param hr the hr
+   */
   public InvalidHourlyRateException(double hr){
     super("Error: Invalid Hourly Rate "+ hr);
   }
